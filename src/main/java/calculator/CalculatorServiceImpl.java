@@ -7,23 +7,22 @@ public class CalculatorServiceImpl implements CalculatorServiсe{
 
 
     @Override
-    public String calculatorPlus(Integer num1, Integer num2) {
-        int sum = num1 + num2;
-        return num1 + "+" + num2 + "=" + sum;
+    public Integer calculatorPlus (Integer num1, Integer num2) {
+        return num1 + num2;
     }
 
     @Override
-    public String calculatorMinus(Integer num1, Integer num2) {
-        return null;
+    public Integer calculatorMinus (Integer num1, Integer num2) {
+        return num1 - num2;
     }
 
     @Override
-    public String calculatorMultiply(Integer num1, Integer num2) {
-        return null;
+    public Integer calculatorMultiply(Integer num1, Integer num2) {
+        return num1 * num2;
     }
 
     @Override
-    public String calculatorDivide(Integer num1, Integer num2) {
-        return null;
+    public Integer calculatorDivide(Integer num1, Integer num2) {
+        return num1 / num2;
     }
 }
