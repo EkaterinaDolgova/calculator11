@@ -1,23 +1,16 @@
 package calculator;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CalculatorServiceImplParameterizedTest {
     private final CalculatorServiceImpl out = new CalculatorServiceImpl();
-        private int num1;
-        private int num2;
-        private int expected;
 
-    public CalculatorServiceImplParameterizedTest(int num1, int num2, int expected) {
-        this.num1 = num1;
-        this.num2 = num2;
-        this.expected = expected;
-    }
     private static Stream<Arguments> argumentsForCalculatorTestsPlus() {
         return Stream.of(
                 Arguments.of(2,1,3),
@@ -28,7 +21,7 @@ public class CalculatorServiceImplParameterizedTest {
     @ParameterizedTest
     @MethodSource("argumentsForCalculatorTestsPlus")
     public void paramTestPlus(int num1, int num2, int expected) {
-        Assertions.assertEquals(expected, out.calculatorPlus(num1,num2));
+        assertEquals(expected, out.calculatorPlus(num1,num2));
     }
 
     private static Stream<Arguments> argumentsForCalculatorTestsMinus() {
@@ -41,7 +34,7 @@ public class CalculatorServiceImplParameterizedTest {
     @ParameterizedTest
     @MethodSource("argumentsForCalculatorTestsMinus")
     public void paramTestMinus(int num1, int num2, int expected) {
-        Assertions.assertEquals(expected, out.calculatorMinus(num1,num2));
+        assertEquals(expected, out.calculatorMinus(num1,num2));
     }
 
     private static Stream<Arguments> argumentsForCalculatorTestsMultiply() {
@@ -54,6 +47,19 @@ public class CalculatorServiceImplParameterizedTest {
     @ParameterizedTest
     @MethodSource("argumentsForCalculatorTestsMultiply")
     public void paramTestMultiply(int num1, int num2, int expected) {
-        Assertions.assertEquals(expected, out.calculatorMultiply(num1,num2));
+        assertEquals(expected, out.calculatorMultiply(num1,num2));
+    }
+
+    private static Stream<Arguments> argumentsForCalculatorTestsDivide() {
+        return Stream.of(
+                Arguments.of(2,1,2),
+                Arguments.of(2,2,1),
+                Arguments.of(3,0,1)
+        );
+    }
+    @ParameterizedTest
+    @MethodSource("argumentsForCalculatorTestsDivide")
+    public void paramTestDivide(int num1, int num2, int expected) {
+        assertEquals(expected, out.calculatorDivide(num1,num2));
     }
 }
