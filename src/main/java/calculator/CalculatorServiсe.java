@@ -6,22 +6,14 @@ import org.springframework.stereotype.Service;
 public interface CalculatorServiсe {
 
 
-    public default Integer calculatorPlus(Integer num1, Integer num2) {
-        return null;
+    Integer calculatorPlus(Integer num1, Integer num2);
+
+   Integer calculatorMinus(Integer num1, Integer num2);
+
+    Integer calculatorMultiply(Integer num1, Integer num2);
+
+     Integer calculatorDivide(Integer num1, Integer num2);
     }
 
-    public default Integer calculatorMinus(Integer num1, Integer num2) {
-        return null;
-    }
-
-    public default Integer calculatorMultiply(Integer num1, Integer num2) {
-        return null;
-    }
-
-    public default Integer calculatorDivide(Integer num1, Integer num2) {
-
-        return null;
-    }
-}
 
 

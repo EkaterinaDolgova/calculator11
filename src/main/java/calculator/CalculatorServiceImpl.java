@@ -23,6 +23,12 @@ public class CalculatorServiceImpl implements CalculatorServiсe{
 
     @Override
     public Integer calculatorDivide(Integer num1, Integer num2) {
-        return num1 / num2;
+        if (num2 == 0) {
+            throw new IllegalArgumentException("Деление на 0 запрещено" + num2);
+        } else
+            return num1 / num2;
+        }
+
+
     }
-}
+
